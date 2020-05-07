@@ -45,6 +45,12 @@ print(uscasesreport)
 print(usdeathsreport)
 print(usrecoveredreport)
 
+with open('log.txt', 'a') as reportLog:
+    reportLog.write(uscasesreport+';\n')
+    reportLog.write(usdeathsreport+';\n')
+    reportLog.write(usrecoveredreport+';\n')
+reportLog.close()
+
 screen_width = master.winfo_screenwidth()
 screen_height = master.winfo_screenheight()
 button_width = 10
@@ -91,6 +97,11 @@ def getcases():
 
     c.set(str(uscasesreport))
     print(uscasesreport)
+
+    with open('log.txt', 'a') as reportLog:
+        reportLog.write(uscasesreport+';\n')
+    reportLog.close()
+
     return uscasesreport
 
 def getdeaths():
@@ -115,6 +126,11 @@ def getdeaths():
 
     d.set(str(usdeathsreport))
     print(usdeathsreport)
+
+    with open('log.txt', 'a') as reportLog:
+        reportLog.write(usdeathsreport+';\n')
+    reportLog.close()
+
     return usdeathsreport
 
 def getrecovered():
@@ -139,6 +155,11 @@ def getrecovered():
 
     r.set(str(usrecoveredreport))
     print(usrecoveredreport)
+
+    with open('log.txt', 'a') as reportLog:
+        reportLog.write(usrecoveredreport+';\n')
+    reportLog.close()
+
     return usrecoveredreport
 
 caseslabel = Label(master, bg=bg_color, bd=label_border,
