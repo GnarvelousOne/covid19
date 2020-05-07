@@ -6,30 +6,17 @@ from time import sleep
 from random import randint
 import time
 import datetime
-
 try:
     from Tkinter import *
     import tkFont
 except ImportError:
     from tkinter import *
     from tkinter import font as tkFont
-'''
-# for use when using separate files for each statistic
-import cases
-import deaths
-import recovered
-'''
+
 global c,d,r,uscasesreport,usdeathsreport,usrecoveredreport
 
 master = Tk()
 master.title("U.S. COVID-19 Tracker")
-
-'''
-# not sure why to keep this
-uscasesreport = ''
-usdeathsreport = ''
-usrecoveredreport = ''
-'''
 
 webpage_response = requests.get('https://www.worldometers.info/coronavirus/country/us/')
 webpage = webpage_response.content
@@ -54,18 +41,9 @@ uscasesreport = timenow + ': U.S. COVID-19 cases: ' + uscases
 usdeathsreport = timenow + ': U.S. COVID-19 deaths: ' + usdeaths
 usrecoveredreport = timenow + ': U.S. COVID-19 recoveries: ' + usrecovered
 
-
 print(uscasesreport)
 print(usdeathsreport)
 print(usrecoveredreport)
-
-
-'''
-# for use when using separate files for each statistic
-uscasesreport = ''
-usdeathsreport = ''
-usrecoveredreport = ''
-'''
 
 screen_width = master.winfo_screenwidth()
 screen_height = master.winfo_screenheight()
@@ -90,19 +68,6 @@ r = StringVar()
 c.set(str(uscasesreport))
 d.set(str(usdeathsreport))
 r.set(str(usrecoveredreport))
-
-'''
-# old commands for buttons
-def refreshcases():
-    global uscasesreport
-    cases.getcases()
-
-def refreshdeaths():
-    deaths.getdeaths()
-
-def refreshrecovered():
-    recovered.getrecovered()
-'''
 
 def getcases():
     uscasesreport = ''
