@@ -13,17 +13,19 @@ try:
 except ImportError:
     from tkinter import *
     from tkinter import font as tkFont
-
-#import cases
-#import deaths
-#import recovered
-
+'''
+# for use when using separate files for each statistic
+import cases
+import deaths
+import recovered
+'''
 global c,d,r,uscasesreport,usdeathsreport,usrecoveredreport
 
 master = Tk()
 master.title("U.S. COVID-19 Tracker")
 
 '''
+# not sure why to keep this
 uscasesreport = ''
 usdeathsreport = ''
 usrecoveredreport = ''
@@ -59,6 +61,7 @@ print(usrecoveredreport)
 
 
 '''
+# for use when using separate files for each statistic
 uscasesreport = ''
 usdeathsreport = ''
 usrecoveredreport = ''
@@ -89,6 +92,7 @@ d.set(str(usdeathsreport))
 r.set(str(usrecoveredreport))
 
 '''
+# old commands for buttons
 def refreshcases():
     global uscasesreport
     cases.getcases()
@@ -195,6 +199,5 @@ deathsbutton.grid(column=3, row=2)
 recoveredbutton = Button(master, text='Refresh', command=getrecovered, fg=button_text_color, bg=button_bg_color,
 width=button_width, height=button_height, bd=button_border, font=button_font)
 recoveredbutton.grid(column=3, row=3)
-
 
 mainloop()
