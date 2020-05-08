@@ -6,6 +6,7 @@ from time import sleep
 from random import randint
 import time
 import datetime
+from matplotlib import pyplot as plt
 try:
     from Tkinter import *
     import tkFont
@@ -50,6 +51,17 @@ with open('log.txt', 'a') as reportLog:
     reportLog.write(usdeathsreport+';\n')
     reportLog.write(usrecoveredreport+';\n')
 reportLog.close()
+
+x_cases = []
+x_deaths = []
+x_recovered = []
+
+x_cases.append(uscases)
+x_deaths.append(usdeaths)
+x_recovered.append(usrecovered)
+
+#plt.plot(range(len(x_cases)), x_cases)
+#plt.show()
 
 screen_width = master.winfo_screenwidth()
 screen_height = master.winfo_screenheight()
@@ -102,6 +114,8 @@ def getcases():
         reportLog.write(uscasesreport+';\n')
     reportLog.close()
 
+    x_cases.append(uscases)
+
     return uscasesreport
 
 def getdeaths():
@@ -131,6 +145,8 @@ def getdeaths():
         reportLog.write(usdeathsreport+';\n')
     reportLog.close()
 
+    x_deaths.append(usdeaths)
+
     return usdeathsreport
 
 def getrecovered():
@@ -159,6 +175,8 @@ def getrecovered():
     with open('log.txt', 'a') as reportLog:
         reportLog.write(usrecoveredreport+';\n')
     reportLog.close()
+
+    x_recovered.append(usrecovered)
 
     return usrecoveredreport
 
