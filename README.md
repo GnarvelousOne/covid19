@@ -7,3 +7,5 @@ This app scrapes three pieces of data from worldometer.com:  US COVID19 cases, d
 to each one and writes each new entry to log.txt deliminated with semi-colons.  It also adds each new entry to a list in 
 order to plot graphs or other data science uses.
 
+cases.py, deaths.py, and recovered.py are not currently used; the main file covid19.py contains the code for each statistic.  
+I had thought about splitting the code across separate python scripts but couldn't get it to update the tkinter labels.
