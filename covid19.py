@@ -7,12 +7,8 @@ from random import randint
 import time
 import datetime
 from matplotlib import pyplot as plt
-try:
-    from Tkinter import *
-    import tkFont
-except ImportError:
-    from tkinter import *
-    from tkinter import font as tkFont
+from tkinter import *
+from tkinter import font as tkFont
 
 global c,d,r,uscasesreport,usdeathsreport,usrecoveredreport
 
