@@ -22,7 +22,8 @@ soup = BeautifulSoup(webpage, "html.parser")
 covid_div = soup.find_all(class_ = 'maincounter-number')
 
 timenow = str(datetime.datetime.now().strftime("%a, %b %d %I:%M:%S %p"))
-
+oldtime = ''
+oldtime == timenow
 divlist = []
 for i in covid_div:
     divlist.append(i)
@@ -60,29 +61,6 @@ y_recovered.append(usrecovered)
 #plt.plot(range(len(y_cases)), y_cases)
 #plt.show()
 
-screen_width = master.winfo_screenwidth()
-screen_height = master.winfo_screenheight()
-button_width = 10
-button_height = 5
-button_border = 3
-button_font = tkFont.Font(family='latin modern typewriter variable width', size=14)
-button_text_color = "#d1e0e0"
-button_bg_color = "#537979"
-bg_color = '#d1e0e0'
-label_height = 5
-label_width = 60
-label_font = tkFont.Font(family='latin modern typewriter variable width', size=14)
-#label_background = "#f0f5f5"
-label_border = 3
-label_relief = RAISED
-
-c = StringVar()
-d = StringVar()
-r = StringVar()
-
-c.set(str(uscasesreport))
-d.set(str(usdeathsreport))
-r.set(str(usrecoveredreport))
 
 def getcases():
     uscasesreport = ''
@@ -93,6 +71,7 @@ def getcases():
     covid_div = soup.find_all(class_ = 'maincounter-number')
 
     timenow = str(datetime.datetime.now().strftime("%a, %b %d %I:%M:%S %p"))
+    timechange = timenow - oldtime
 
     divlist = []
     for i in covid_div:
@@ -102,7 +81,7 @@ def getcases():
 
     uscases = str(uscasesdirty[1]).replace('<span style="color:#aaa">', '').replace(' </span>', '')
 
-    uscasesreport = timenow + ': U.S. COVID-19 cases: ' + uscases
+    uscasesreport = timenow + ': U.S. COVID-19 cases: ' + uscases + '\nTime passed since last update: '+ timechange
 
     c.set(str(uscasesreport))
     print(uscasesreport)
@@ -111,7 +90,9 @@ def getcases():
         reportLog.write(uscasesreport+';\n')
     reportLog.close()
 
-    y_cases.append(int(uscases))
+    y_cases.append(uscases)
+
+
 
     return uscasesreport
 
@@ -180,6 +161,31 @@ def getrecovered():
 #def getcharts():
 #    charts
 
+screen_width = master.winfo_screenwidth()
+screen_height = master.winfo_screenheight()
+button_width = 10
+button_height = 5
+button_border = 3
+button_font = tkFont.Font(family='latin modern typewriter variable width', size=14)
+button_text_color = "#d1e0e0"
+button_bg_color = "#537979"
+bg_color = '#d1e0e0'
+label_height = 5
+label_width = 60
+label_font = tkFont.Font(family='latin modern typewriter variable width', size=14)
+#label_background = "#f0f5f5"
+label_border = 3
+label_relief = RAISED
+
+c = StringVar()
+d = StringVar()
+r = StringVar()
+
+c.set(str(uscasesreport))
+d.set(str(usdeathsreport))
+r.set(str(usrecoveredreport))
+
+
 caseslabel = Label(master, bg=bg_color, bd=label_border,
 relief=label_relief, width=label_width, height=label_height, font=label_font, textvariable=c)
 caseslabel.grid(column=1, row=1, columnspan=2, sticky= W+E+N+S)
@@ -204,8 +210,8 @@ recoveredbutton = Button(master, text='Refresh', command=getrecovered, fg=button
 width=button_width, height=button_height, bd=button_border, font=button_font)
 recoveredbutton.grid(column=3, row=3)
 
-chartbutton = Button(master, text='Get Chart', command=casesGraph, fg=button_text_color, bg=button_bg_color,
-width=button_width, height=button_height, bd=button_border, font=button_font)
-chartbutton.grid(column=4, row=0, rowspan=3)
+chartbutton = Button(master, text='Get Chart', command="", fg=button_text_color, bg=button_bg_color,
+width=button_width, height=(button_height*3), bd=button_border, font=button_font)
+chartbutton.grid(column=4, row=1, rowspan=3, sticky= W+E+N+S)
 
 mainloop()
