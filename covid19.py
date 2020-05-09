@@ -9,6 +9,7 @@ import datetime
 #from matplotlib import pyplot as plt
 from tkinter import *
 from tkinter import font as tkFont
+from charts import *
 
 global c,d,r,uscasesreport,usdeathsreport,usrecoveredreport
 
@@ -110,7 +111,7 @@ def getcases():
         reportLog.write(uscasesreport+';\n')
     reportLog.close()
 
-    y_cases.append(uscases)
+    y_cases.append(int(uscases))
 
     return uscasesreport
 
@@ -176,6 +177,9 @@ def getrecovered():
 
     return usrecoveredreport
 
+#def getcharts():
+#    charts
+
 caseslabel = Label(master, bg=bg_color, bd=label_border,
 relief=label_relief, width=label_width, height=label_height, font=label_font, textvariable=c)
 caseslabel.grid(column=1, row=1, columnspan=2, sticky= W+E+N+S)
@@ -199,5 +203,9 @@ deathsbutton.grid(column=3, row=2)
 recoveredbutton = Button(master, text='Refresh', command=getrecovered, fg=button_text_color, bg=button_bg_color,
 width=button_width, height=button_height, bd=button_border, font=button_font)
 recoveredbutton.grid(column=3, row=3)
+
+chartbutton = Button(master, text='Get Chart', command=casesGraph, fg=button_text_color, bg=button_bg_color,
+width=button_width, height=button_height, bd=button_border, font=button_font)
+chartbutton.grid(column=4, row=0, rowspan=3)
 
 mainloop()
