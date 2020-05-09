@@ -2,11 +2,11 @@
 
 import requests
 from bs4 import BeautifulSoup
-from time import sleep
+#from time import sleep
 from random import randint
 import time
 import datetime
-from matplotlib import pyplot as plt
+#from matplotlib import pyplot as plt
 from tkinter import *
 from tkinter import font as tkFont
 
@@ -48,15 +48,15 @@ with open('log.txt', 'a') as reportLog:
     reportLog.write(usrecoveredreport+';\n')
 reportLog.close()
 
-x_cases = []
-x_deaths = []
-x_recovered = []
+y_cases = []
+y_deaths = []
+y_recovered = []
 
-x_cases.append(uscases)
-x_deaths.append(usdeaths)
-x_recovered.append(usrecovered)
+y_cases.append(uscases)
+y_deaths.append(usdeaths)
+y_recovered.append(usrecovered)
 
-#plt.plot(range(len(x_cases)), x_cases)
+#plt.plot(range(len(y_cases)), y_cases)
 #plt.show()
 
 screen_width = master.winfo_screenwidth()
@@ -110,7 +110,7 @@ def getcases():
         reportLog.write(uscasesreport+';\n')
     reportLog.close()
 
-    x_cases.append(uscases)
+    y_cases.append(uscases)
 
     return uscasesreport
 
@@ -141,7 +141,7 @@ def getdeaths():
         reportLog.write(usdeathsreport+';\n')
     reportLog.close()
 
-    x_deaths.append(usdeaths)
+    y_deaths.append(usdeaths)
 
     return usdeathsreport
 
@@ -172,7 +172,7 @@ def getrecovered():
         reportLog.write(usrecoveredreport+';\n')
     reportLog.close()
 
-    x_recovered.append(usrecovered)
+    y_recovered.append(usrecovered)
 
     return usrecoveredreport
 
