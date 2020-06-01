@@ -95,7 +95,7 @@ def getcases():
     uscases = str(uscasesdirty[1]).replace('<span style="color:#aaa">', '').replace(' </span>', '')
 
     uscasesreport = str(timenow.strftime("%a, %b %d %I:%M:%S %p")) + ': U.S. COVID-19 cases: ' + uscases
-    timechange = "\n" + (str(diff[0]) + " hour(s), " + str(diff[2:4]) + " minute(s), and " + str(diff[5:7]) + " second(s) since last cases update.")
+    timechange = "\n" + (str(diff[0]) + " hour(s), " + str(diff[2:4]) + " minute(s), and " + str(diff[5:7]) + " second(s)" + "\n" + "since last cases update.")
 
     c.set(str(uscasesreport) + timechange)
     print(uscasesreport + timechange)
@@ -134,7 +134,7 @@ def getdeaths():
     usdeaths = str(usdeathsdirty[1]).replace('<span>', '').replace('</span>', '')
 
     usdeathsreport = str(timenow.strftime("%a, %b %d %I:%M:%S %p")) + ': U.S. COVID-19 deaths: ' + usdeaths
-    timechange = "\n" + (str(diff[0]) + " hour(s), " + str(diff[2:4]) + " minute(s), and " + str(diff[5:7]) + " second(s) since last deaths update.")
+    timechange = "\n" + (str(diff[0]) + " hour(s), " + str(diff[2:4]) + " minute(s), and " + str(diff[5:7]) + " second(s)" + "\n" + "since last deaths update.")
 
     d.set(str(usdeathsreport) + timechange)
     print(usdeathsreport + timechange)
@@ -173,7 +173,7 @@ def getrecovered():
     usrecovered = str(usrecovereddirty[1]).replace('<span>', '').replace('</span>', '')
 
     usrecoveredreport = str(timenow.strftime("%a, %b %d %I:%M:%S %p")) + ': U.S. COVID-19 recoveries: ' + usrecovered
-    timechange = "\n" + (str(diff[0]) + " hour(s), " + str(diff[2:4]) + " minute(s), and " + str(diff[5:7]) + " second(s) since last recoveries update.")
+    timechange = "\n" + (str(diff[0]) + " hour(s), " + str(diff[2:4]) + " minute(s), and " + str(diff[5:7]) + " second(s)" + "\n" + "since last recoveries update.")
 
     r.set(str(usrecoveredreport) + timechange)
     print(usrecoveredreport + timechange)
@@ -214,13 +214,13 @@ screen_height = master.winfo_screenheight()
 button_width = 10
 button_height = 5
 button_border = 3
-button_font = tkFont.Font(family='latin modern typewriter variable width', size=14)
+button_font = tkFont.Font(family='latin modern typewriter variable width', size=12)
 button_text_color = "#d1e0e0"
 button_bg_color = "#537979"
 bg_color = '#d1e0e0'
 label_height = 5
 label_width = 65
-label_font = tkFont.Font(family='latin modern typewriter variable width', size=14)
+label_font = tkFont.Font(family='latin modern typewriter variable width', size=12)
 #label_background = "#f0f5f5"
 label_border = 3
 label_relief = RAISED
