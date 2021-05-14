@@ -4,7 +4,7 @@ Web Scraper tracking US COVID19 statistics
 For python 3, also requires Beautiful Soup python module
 
 This app scrapes three pieces of data from worldometer.info:  US COVID19 cases,
-deaths, and recoveries.  It adds a timestampto each one, prints it to the
+deaths, and recoveries.  It adds a timestamp to each one, prints it to the
 terminal, and writes each entry to log.txt, deliminated with semi-colons.  A
 simple tkinter design displays each statistic and a button to update it, along
  with the current timestamp and time passed since last check.  The app also adds
